@@ -9,7 +9,7 @@ This project aims to gather comprehensive employee retention and company review 
 ## 📁 Project Structure
 
 ```
-Employee-Retention-Analysis/
+Glassdoor Companies Review Analysis/
 ├── 1 Web Scraping Companies/          # Phase 1: Company data scraping
 ├── 2 Extension for Glassdoor Company Reviews/  # Phase 2: Review link collection
 ├── 3 Gathering data using AI/         # Phase 3: AI-driven data gathering
@@ -154,7 +154,7 @@ Centralized data storage containing comprehensive employee review datasets.
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd Employee-Retention-Analysis
+   cd Glassdoor Companies Review Analysis
    ```
 
 2. **Create and activate virtual environment:**
