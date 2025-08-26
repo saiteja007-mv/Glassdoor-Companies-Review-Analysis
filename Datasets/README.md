@@ -1,7 +1,7 @@
-# Employee Retention Analysis Datasets
+# Glassdoor Companies Review Analysis Datasets
 
 ## Overview
-This folder contains datasets collected for comprehensive employee retention analysis. The primary dataset consists of employee reviews scraped from Glassdoor using AI-powered automation tools.
+This folder contains datasets collected for comprehensive Glassdoor Companies Review Analysis. The primary dataset consists of employee reviews scraped from Glassdoor using AI-powered automation tools.
 
 ## 📊 Dataset: Glassdoor Reviews.csv
 
@@ -111,7 +111,7 @@ The dataset includes employee reviews from major corporations, including:
 
 ## 🎯 Use Cases
 
-### Employee Retention Analysis
+### Glassdoor Companies Review Analysis
 - **Sentiment Analysis**: Analyze pros/cons to identify satisfaction drivers
 - **Turnover Prediction**: Use ratings and employment duration for modeling
 - **Culture Assessment**: Evaluate culture and values ratings across companies
@@ -182,4 +182,4 @@ Average Rating Range: 1-5 stars across 10 categories
 Google Sheets (URLs) → Make.com (Automation) → Apify (Scraping) → CSV Output
 ```
 
-This dataset provides a comprehensive foundation for employee retention analysis, offering rich insights into workplace satisfaction, company culture, and factors influencing employee loyalty across major organizations. 
+This dataset provides a comprehensive foundation for Glassdoor Companies Review Analysis, offering rich insights into workplace satisfaction, company culture, and factors influencing employee loyalty across major organizations. 

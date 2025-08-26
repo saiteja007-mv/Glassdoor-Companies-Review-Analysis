@@ -1,7 +1,7 @@
 # Glassdoor Data Gathering Using AI Automation
 
 ## Overview
-This folder contains the automation blueprint for gathering employee review data from Glassdoor using AI-powered tools. The process leverages **Apify** for web scraping and **Make.com** for workflow automation to collect comprehensive employee feedback data for the Employee Retention Analysis project.
+This folder contains the automation blueprint for gathering employee review data from Glassdoor using AI-powered tools. The process leverages **Apify** for web scraping and **Make.com** for workflow automation to collect comprehensive employee feedback data for the Glassdoor Companies Review Analysis project.
 
 ## 🚦 Workflow Summary
 
@@ -178,7 +178,7 @@ The scraping process generated a comprehensive dataset stored in `/Datasets/Glas
 - **Columns**: 33 data points per review with complete field mapping
 - **Sample Companies**: JPMorgan Chase and other major employers
 - **Processing**: Batch scraping with up to 100 reviews per company
-- **Use Case**: Employee retention analysis and sentiment mining
+- **Use Case**: Glassdoor Companies Review Analysis and sentiment mining
 
 ## 🚀 How to Use
 

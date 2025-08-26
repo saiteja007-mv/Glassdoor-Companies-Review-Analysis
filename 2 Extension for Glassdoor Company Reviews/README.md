@@ -287,6 +287,6 @@ The extension includes built-in delays and human-like behavior to:
 
 ---
 
-**Built for Employee Retention Analysis Projects** 📈
+**Built for Glassdoor Companies Review Analysis Projects** 📈
 
 *This extension was created to streamline the process of collecting Glassdoor company review links for data analysis and research purposes.*

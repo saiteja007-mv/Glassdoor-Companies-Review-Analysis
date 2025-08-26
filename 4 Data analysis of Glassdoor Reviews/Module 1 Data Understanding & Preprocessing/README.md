@@ -2,7 +2,7 @@
 
 ## 📊 Overview
 
-Module 1 focuses on the foundational data understanding phase of the Employee Retention Analysis project. This module contains comprehensive data exploration and cleaning processes for the Glassdoor employee reviews dataset, providing essential insights into data quality, structure, and characteristics.
+Module 1 focuses on the foundational data understanding phase of the Glassdoor Companies Review Analysis project. This module contains comprehensive data exploration and cleaning processes for the Glassdoor employee reviews dataset, providing essential insights into data quality, structure, and characteristics.
 
 ## 🎯 Objectives
 
@@ -189,7 +189,7 @@ This module prepares the foundation for:
 - **Module 3**: Visualization and Reporting
 - **Module 4**: Advanced Analytics and Modeling
 
-The cleaned dataset is now ready for comprehensive employee retention analysis across major US corporations.
+The cleaned dataset is now ready for comprehensive Glassdoor Companies Review Analysis across major US corporations.
 
 ---
 

@@ -1,4 +1,4 @@
-# Employee Retention Analysis Project
+# Glassdoor Companies Review Analysis
 
 A comprehensive data analysis project focused on collecting and analyzing employee retention data from major companies using multiple data gathering techniques including web scraping, browser automation, and AI-driven data collection.
 

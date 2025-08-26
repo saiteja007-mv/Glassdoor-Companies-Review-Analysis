@@ -1,4 +1,4 @@
-# Employee Retention Analysis: Web Scraping Project
+# Glassdoor Companies Review Analysis: Web Scraping Project
 
 ## Overview
 This project scrapes the Forbes Global 2000 Companies list (filtered for United States) and collects company names. It then attempts to find the corresponding Glassdoor review URLs for each company. The data is saved as CSV files for further analysis.
