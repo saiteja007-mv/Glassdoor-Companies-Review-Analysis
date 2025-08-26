@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Stepwise Glassdoor Link Finder",
+  "version": "1.7",
+  "description": "Find and save Glassdoor review links for a list of companies using DuckDuckGo search.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Glassdoor Link Finder"
+  },
+  "permissions": ["tabs", "scripting", "storage", "downloads"],
+  "host_permissions": [
+    "https://duckduckgo.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://duckduckgo.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

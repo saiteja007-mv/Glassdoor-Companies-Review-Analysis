@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Glassdoor Link Finder</title>
+  <style>
+    body { 
+      width: 450px; 
+      padding: 15px; 
+      font-family: Arial, sans-serif; 
+    }
+    h3 { 
+      margin-top: 0; 
+      color: #333; 
+    }
+    textarea { 
+      width: 100%; 
+      height: 120px; 
+      border: 1px solid #ccc; 
+      border-radius: 4px; 
+      padding: 8px; 
+      font-size: 12px;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .button-container {
+      margin: 10px 0;
+    }
+    button { 
+      padding: 8px 16px; 
+      margin-right: 10px; 
+      border: none; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 14px;
+    }
+    #searchBtn { 
+      background-color: #4CAF50; 
+      color: white; 
+    }
+    #searchBtn:disabled { 
+      background-color: #cccccc; 
+      cursor: not-allowed; 
+    }
+    #stopBtn {
+      background-color: #f44336;
+      color: white;
+      display: none;
+    }
+    #downloadBtn { 
+      background-color: #2196F3; 
+      color: white; 
+    }
+    #results { 
+      margin-top: 15px; 
+      max-height: 300px; 
+      overflow-y: auto; 
+      border: 1px solid #eee; 
+      padding: 10px; 
+      border-radius: 4px;
+    }
+    .link-row { 
+      margin-bottom: 8px; 
+      padding: 5px; 
+      background-color: #f9f9f9; 
+      border-radius: 3px; 
+      font-size: 12px;
+    }
+    .instructions {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .search-info {
+      font-size: 11px;
+      color: #888;
+      margin-top: 8px;
+      padding: 8px;
+      background-color: #f0f8ff;
+      border-radius: 4px;
+      border-left: 3px solid #2196F3;
+    }
+  </style>
+</head>
+<body>
+  <h3>Glassdoor Link Finder</h3>
+  <div class="instructions">
+    Enter company names below (one per line). The extension will search DuckDuckGo for their Glassdoor pages and download a CSV file when complete.
+  </div>
+  <textarea id="companyInput" placeholder="Example:&#10;Microsoft&#10;Google&#10;Apple&#10;Amazon"></textarea>
+  <div class="button-container">
+    <button id="searchBtn">Start Search</button>
+    <button id="stopBtn">Stop Search</button>
+    <button id="downloadBtn">Download CSV</button>
+  </div>
+  <div class="search-info">
+    <strong>🦆 Using DuckDuckGo:</strong><br>
+    • No CAPTCHAs or tracking concerns<br>
+    • Faster processing with 2-4 second delays<br>
+    • More reliable automated searches<br>
+    • Privacy-focused search engine
+  </div>
+  <div id="results"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

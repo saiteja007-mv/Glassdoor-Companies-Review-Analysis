@@ -1,0 +1,1160 @@
+{
+    "name": "Glassdoor Data Scraping",
+    "flow": [
+        {
+            "id": 25,
+            "module": "google-sheets:getSheetContent",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 3616015
+            },
+            "mapper": {
+                "select": "list",
+                "range": "B42:B100",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING",
+                "from": "drive",
+                "spreadsheetId": "/1K1gBFLstz1sUZv9XHqqQhPxaypa4NFoQ/1G2bO1VOHQGpQYiGKf2t9uG6RrkCw8fTP/10iLf6aS6g0Svo07NzqxdmSQdPbG9gSnnyVfloxwfXOo",
+                "sheetId": "Glassdoor_Companies_Reviews",
+                "tableFirstRow": "B1"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Google connection (saiteja.motukuri@gmail.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "select": {
+                            "label": "Search by path"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        },
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Data Analyst Projects",
+                                "Employee Retention Analysis",
+                                "Glassdoor_Companies_Reviews"
+                            ]
+                        },
+                        "sheetId": {
+                            "label": "Glassdoor_Companies_Reviews"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "list",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "range",
+                        "type": "text",
+                        "label": "Range",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "boolean",
+                        "label": "Table contains headers",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "label": "Row number",
+                        "type": "number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "label": "Spreadsheet ID",
+                        "type": "text"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "label": "Sheet",
+                        "type": "text"
+                    },
+                    {
+                        "name": "0",
+                        "label": "Glassdoor Link (B)",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 19,
+            "module": "builtin:BasicFeeder",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "array": "{{25.`0`}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "array": {
+                            "mode": "edit"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "mode": "edit",
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 20,
+            "module": "apify:runActor",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 3647503
+            },
+            "mapper": {
+                "actorId": "cAbCkTzBPP0HFO50f",
+                "runSync": true,
+                "timeout": "60",
+                "inputBody": "{\r\n    \"includeAllReviews\": false,\r\n    \"includeAllSalaries\": false,\r\n    \"includeCompanyBenefitsStats\": false,\r\n    \"includeCompanyInterviewStats\": false,\r\n    \"includeCompanyReviewStats\": false,\r\n    \"maxItems\": 100,\r\n    \"monitoringModeForReviews\": false,\r\n    \"proxy\": {\r\n        \"useApifyProxy\": true,\r\n        \"apifyProxyGroups\": [\r\n            \"RESIDENTIAL\"\r\n        ]\r\n    },\r\n    \"startUrls\": [\r\n        {\r\n            \"url\": \"{{19.value}}\",\r\n            \"method\": \"GET\"\r\n        }\r\n    ]\r\n}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "memory": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "actorId": {
+                            "mode": "chose",
+                            "label": "Glassdoor Reviews, Interviews, Locations, Salary, Job, Overview (memo23/apify-glassdoor-reviews-scraper)"
+                        },
+                        "runSync": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "apify2"
+                            },
+                            "label": "Vaw apify (vawesac443@cigidea.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:apify2,apify",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "actorId",
+                        "type": "select",
+                        "label": "Actor",
+                        "required": true
+                    },
+                    {
+                        "name": "runSync",
+                        "type": "boolean",
+                        "label": "Run synchronously",
+                        "required": true
+                    },
+                    {
+                        "name": "inputBody",
+                        "type": "text",
+                        "label": "Input JSON"
+                    },
+                    {
+                        "name": "build",
+                        "type": "text",
+                        "label": "Build"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout"
+                    },
+                    {
+                        "name": "memory",
+                        "type": "select",
+                        "label": "Memory",
+                        "validate": {
+                            "enum": [
+                                128,
+                                256,
+                                512,
+                                1024,
+                                2048,
+                                4096,
+                                8192,
+                                16384,
+                                32768
+                            ]
+                        }
+                    },
+                    {
+                        "name": "actorId",
+                        "type": "select",
+                        "label": "Actor",
+                        "required": true
+                    },
+                    {
+                        "name": "runSync",
+                        "type": "boolean",
+                        "label": "Run synchronously",
+                        "required": true
+                    },
+                    {
+                        "name": "inputBody",
+                        "type": "text",
+                        "label": "Input JSON"
+                    },
+                    {
+                        "name": "build",
+                        "type": "text",
+                        "label": "Build"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout"
+                    },
+                    {
+                        "name": "memory",
+                        "type": "select",
+                        "label": "Memory",
+                        "validate": {
+                            "enum": [
+                                128,
+                                256,
+                                512,
+                                1024,
+                                2048,
+                                4096,
+                                8192,
+                                16384,
+                                32768
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 21,
+            "module": "apify:fetchDatasetItems",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 3647503
+            },
+            "mapper": {
+                "type": "clean",
+                "format": "json",
+                "datasetId": "{{20.defaultDatasetId}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "Clean"
+                        },
+                        "limit": {
+                            "empty": true
+                        },
+                        "format": {
+                            "mode": "chose",
+                            "label": "JSON"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "apify2"
+                            },
+                            "label": "Vaw apify (vawesac443@cigidea.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:apify2,apify",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "datasetId",
+                        "type": "text",
+                        "label": "Dataset ID",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Data transformation",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "clean",
+                                "simplified",
+                                "none"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "type": "select",
+                        "label": "Format",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "json",
+                                "csv",
+                                "html",
+                                "xml",
+                                "rss",
+                                "xlsx"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "validate": {
+                            "max": 100000,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "type": "uinteger",
+                        "label": "Offset",
+                        "validate": {
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "datasetId",
+                        "type": "text",
+                        "label": "Dataset ID",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Data transformation",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "clean",
+                                "simplified",
+                                "none"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "type": "select",
+                        "label": "Format",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "json",
+                                "csv",
+                                "html",
+                                "xml",
+                                "rss",
+                                "xlsx"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "validate": {
+                            "max": 100000,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "type": "uinteger",
+                        "label": "Offset",
+                        "validate": {
+                            "min": 0
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 22,
+            "module": "google-sheets:addRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 3616015
+            },
+            "mapper": {
+                "from": "drive",
+                "mode": "select",
+                "values": {
+                    "0": "{{21.advice}}",
+                    "1": "{{21.cons}}",
+                    "2": "{{21.countHelpful}}",
+                    "3": "{{21.countNotHelpful}}",
+                    "4": "{{21.employer.`__typename`}}",
+                    "5": "{{21.employer.id}}",
+                    "6": "{{21.employer.shortName}}",
+                    "7": "{{21.employmentStatus}}",
+                    "8": "{{21.featured}}",
+                    "9": "{{21.flaggingDisabled}}",
+                    "10": "{{21.isCurrentJob}}",
+                    "11": "{{21.jobTitle.`__typename`}}",
+                    "12": "{{21.jobTitle.text}}",
+                    "13": "{{21.languageId}}",
+                    "14": "{{21.lengthOfEmployment}}",
+                    "15": "{{21.location.`__typename`}}",
+                    "16": "{{21.location.name}}",
+                    "17": "{{21.location.type}}",
+                    "18": "{{21.originalLanguageId}}",
+                    "19": "{{21.pros}}",
+                    "20": "{{21.prosOriginal}}",
+                    "21": "{{21.ratingBusinessOutlook}}",
+                    "22": "{{21.ratingCareerOpportunities}}",
+                    "23": "{{21.ratingCeo}}",
+                    "24": "{{21.ratingCompensationAndBenefits}}",
+                    "25": "{{21.ratingCultureAndValues}}",
+                    "26": "{{21.ratingDiversityAndInclusion}}",
+                    "27": "{{21.ratingOverall}}",
+                    "28": "{{21.ratingRecommendToFriend}}",
+                    "29": "{{21.ratingSeniorLeadership}}",
+                    "30": "{{21.ratingWorkLifeBalance}}",
+                    "31": "{{21.reviewDateTime}}",
+                    "32": "{{21.summary}}"
+                },
+                "sheetId": "Sheet1",
+                "spreadsheetId": "/1K1gBFLstz1sUZv9XHqqQhPxaypa4NFoQ/1G2bO1VOHQGpQYiGKf2t9uG6RrkCw8fTP/1V2IQVtT0oLbsBPu5Lgkc7rMY3wQxeMbxfn5uiUd0HbI",
+                "includesHeaders": true,
+                "insertDataOption": "INSERT_ROWS",
+                "valueInputOption": "USER_ENTERED",
+                "insertUnformatted": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "sheetId": {
+                            "label": "Sheet1"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Data Analyst Projects",
+                                "Employee Retention Analysis",
+                                "Glassdoor Reviews"
+                            ]
+                        },
+                        "includesHeaders": {
+                            "label": "Yes",
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "spec": [
+                                        {
+                                            "name": "0",
+                                            "type": "text",
+                                            "label": "Advice (A)"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "type": "text",
+                                            "label": "Cons (B)"
+                                        },
+                                        {
+                                            "name": "2",
+                                            "type": "text",
+                                            "label": "countHelpful (C)"
+                                        },
+                                        {
+                                            "name": "3",
+                                            "type": "text",
+                                            "label": "countNothelpful (D)"
+                                        },
+                                        {
+                                            "name": "4",
+                                            "type": "text",
+                                            "label": "Employeer Type (E)"
+                                        },
+                                        {
+                                            "name": "5",
+                                            "type": "text",
+                                            "label": "Employeer ID (F)"
+                                        },
+                                        {
+                                            "name": "6",
+                                            "type": "text",
+                                            "label": "Employeer Name (G)"
+                                        },
+                                        {
+                                            "name": "7",
+                                            "type": "text",
+                                            "label": "Employement Status (H)"
+                                        },
+                                        {
+                                            "name": "8",
+                                            "type": "text",
+                                            "label": "Featured (I)"
+                                        },
+                                        {
+                                            "name": "9",
+                                            "type": "text",
+                                            "label": "flaggingdisabled (J)"
+                                        },
+                                        {
+                                            "name": "10",
+                                            "type": "text",
+                                            "label": "isCurrent Job (K)"
+                                        },
+                                        {
+                                            "name": "11",
+                                            "type": "text",
+                                            "label": "Job title type (L)"
+                                        },
+                                        {
+                                            "name": "12",
+                                            "type": "text",
+                                            "label": "job title (M)"
+                                        },
+                                        {
+                                            "name": "13",
+                                            "type": "text",
+                                            "label": "language (N)"
+                                        },
+                                        {
+                                            "name": "14",
+                                            "type": "text",
+                                            "label": "length of employement (O)"
+                                        },
+                                        {
+                                            "name": "15",
+                                            "type": "text",
+                                            "label": "location type (P)"
+                                        },
+                                        {
+                                            "name": "16",
+                                            "type": "text",
+                                            "label": "location (Q)"
+                                        },
+                                        {
+                                            "name": "17",
+                                            "type": "text",
+                                            "label": "location type2  (R)"
+                                        },
+                                        {
+                                            "name": "18",
+                                            "type": "text",
+                                            "label": "original language id (S)"
+                                        },
+                                        {
+                                            "name": "19",
+                                            "type": "text",
+                                            "label": "pros (T)"
+                                        },
+                                        {
+                                            "name": "20",
+                                            "type": "text",
+                                            "label": "prosOriginal (U)"
+                                        },
+                                        {
+                                            "name": "21",
+                                            "type": "text",
+                                            "label": "ratingBusinessoutlook (V)"
+                                        },
+                                        {
+                                            "name": "22",
+                                            "type": "text",
+                                            "label": "ratingCarrerOpportunities (W)"
+                                        },
+                                        {
+                                            "name": "23",
+                                            "type": "text",
+                                            "label": "ratingCEO (X)"
+                                        },
+                                        {
+                                            "name": "24",
+                                            "type": "text",
+                                            "label": "ratingCompensationand Benefits (Y)"
+                                        },
+                                        {
+                                            "name": "25",
+                                            "type": "text",
+                                            "label": "ratingCulutreand Values (Z)"
+                                        },
+                                        {
+                                            "name": "26",
+                                            "type": "text",
+                                            "label": "ratingDiversity and Inclusion (AA)"
+                                        },
+                                        {
+                                            "name": "27",
+                                            "type": "text",
+                                            "label": "rating Overall (AB)"
+                                        },
+                                        {
+                                            "name": "28",
+                                            "type": "text",
+                                            "label": "rating RecommendtoFriend (AC)"
+                                        },
+                                        {
+                                            "name": "29",
+                                            "type": "text",
+                                            "label": "ratingSeniorleadership (AD)"
+                                        },
+                                        {
+                                            "name": "30",
+                                            "type": "text",
+                                            "label": "rating worklifebalance (AE)"
+                                        },
+                                        {
+                                            "name": "31",
+                                            "type": "text",
+                                            "label": "reviewdatetime (AF)"
+                                        },
+                                        {
+                                            "name": "32",
+                                            "type": "text",
+                                            "label": "summary (AG)"
+                                        },
+                                        {
+                                            "name": "33",
+                                            "type": "text",
+                                            "label": "(AH)"
+                                        },
+                                        {
+                                            "name": "34",
+                                            "type": "text",
+                                            "label": "(AI)"
+                                        },
+                                        {
+                                            "name": "35",
+                                            "type": "text",
+                                            "label": "(AJ)"
+                                        },
+                                        {
+                                            "name": "36",
+                                            "type": "text",
+                                            "label": "(AK)"
+                                        },
+                                        {
+                                            "name": "37",
+                                            "type": "text",
+                                            "label": "(AL)"
+                                        },
+                                        {
+                                            "name": "38",
+                                            "type": "text",
+                                            "label": "(AM)"
+                                        },
+                                        {
+                                            "name": "39",
+                                            "type": "text",
+                                            "label": "(AN)"
+                                        },
+                                        {
+                                            "name": "40",
+                                            "type": "text",
+                                            "label": "(AO)"
+                                        },
+                                        {
+                                            "name": "41",
+                                            "type": "text",
+                                            "label": "(AP)"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Values"
+                                }
+                            ]
+                        },
+                        "insertDataOption": {
+                            "mode": "chose",
+                            "label": "Insert rows"
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        },
+                        "insertUnformatted": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (saiteja.motukuri@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertUnformatted",
+                        "type": "boolean",
+                        "label": "Unformatted",
+                        "required": true
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertDataOption",
+                        "type": "select",
+                        "label": "Insert data option",
+                        "validate": {
+                            "enum": [
+                                "INSERT_ROWS",
+                                "OVERWRITE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "Advice (A)"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "Cons (B)"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "countHelpful (C)"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "countNothelpful (D)"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "Employeer Type (E)"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "Employeer ID (F)"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "Employeer Name (G)"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "Employement Status (H)"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "Featured (I)"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "flaggingdisabled (J)"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "isCurrent Job (K)"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "Job title type (L)"
+                            },
+                            {
+                                "name": "12",
+                                "type": "text",
+                                "label": "job title (M)"
+                            },
+                            {
+                                "name": "13",
+                                "type": "text",
+                                "label": "language (N)"
+                            },
+                            {
+                                "name": "14",
+                                "type": "text",
+                                "label": "length of employement (O)"
+                            },
+                            {
+                                "name": "15",
+                                "type": "text",
+                                "label": "location type (P)"
+                            },
+                            {
+                                "name": "16",
+                                "type": "text",
+                                "label": "location (Q)"
+                            },
+                            {
+                                "name": "17",
+                                "type": "text",
+                                "label": "location type2  (R)"
+                            },
+                            {
+                                "name": "18",
+                                "type": "text",
+                                "label": "original language id (S)"
+                            },
+                            {
+                                "name": "19",
+                                "type": "text",
+                                "label": "pros (T)"
+                            },
+                            {
+                                "name": "20",
+                                "type": "text",
+                                "label": "prosOriginal (U)"
+                            },
+                            {
+                                "name": "21",
+                                "type": "text",
+                                "label": "ratingBusinessoutlook (V)"
+                            },
+                            {
+                                "name": "22",
+                                "type": "text",
+                                "label": "ratingCarrerOpportunities (W)"
+                            },
+                            {
+                                "name": "23",
+                                "type": "text",
+                                "label": "ratingCEO (X)"
+                            },
+                            {
+                                "name": "24",
+                                "type": "text",
+                                "label": "ratingCompensationand Benefits (Y)"
+                            },
+                            {
+                                "name": "25",
+                                "type": "text",
+                                "label": "ratingCulutreand Values (Z)"
+                            },
+                            {
+                                "name": "26",
+                                "type": "text",
+                                "label": "ratingDiversity and Inclusion (AA)"
+                            },
+                            {
+                                "name": "27",
+                                "type": "text",
+                                "label": "rating Overall (AB)"
+                            },
+                            {
+                                "name": "28",
+                                "type": "text",
+                                "label": "rating RecommendtoFriend (AC)"
+                            },
+                            {
+                                "name": "29",
+                                "type": "text",
+                                "label": "ratingSeniorleadership (AD)"
+                            },
+                            {
+                                "name": "30",
+                                "type": "text",
+                                "label": "rating worklifebalance (AE)"
+                            },
+                            {
+                                "name": "31",
+                                "type": "text",
+                                "label": "reviewdatetime (AF)"
+                            },
+                            {
+                                "name": "32",
+                                "type": "text",
+                                "label": "summary (AG)"
+                            },
+                            {
+                                "name": "33",
+                                "type": "text",
+                                "label": "(AH)"
+                            },
+                            {
+                                "name": "34",
+                                "type": "text",
+                                "label": "(AI)"
+                            },
+                            {
+                                "name": "35",
+                                "type": "text",
+                                "label": "(AJ)"
+                            },
+                            {
+                                "name": "36",
+                                "type": "text",
+                                "label": "(AK)"
+                            },
+                            {
+                                "name": "37",
+                                "type": "text",
+                                "label": "(AL)"
+                            },
+                            {
+                                "name": "38",
+                                "type": "text",
+                                "label": "(AM)"
+                            },
+                            {
+                                "name": "39",
+                                "type": "text",
+                                "label": "(AN)"
+                            },
+                            {
+                                "name": "40",
+                                "type": "text",
+                                "label": "(AO)"
+                            },
+                            {
+                                "name": "41",
+                                "type": "text",
+                                "label": "(AP)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values"
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
