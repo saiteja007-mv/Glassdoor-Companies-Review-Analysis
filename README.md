@@ -4,7 +4,7 @@ A comprehensive data analysis project focused on collecting and analyzing employ
 
 ## 🎯 Project Overview
 
-This project aims to gather comprehensive employee retention and company review data from various sources to perform meaningful analysis on employee satisfaction trends across major US companies. The project is structured in three main phases, each utilizing different methodologies for data collection.
+This project aims to gather comprehensive employee retention and company review data from various sources to perform meaningful analysis on employee satisfaction trends across major US companies. The project is structured in four main phases, each utilizing different methodologies for data collection and analysis.
 
 ## 📁 Project Structure
 
@@ -13,7 +13,8 @@ Employee-Retention-Analysis/
 ├── 1 Web Scraping Companies/          # Phase 1: Company data scraping
 ├── 2 Extension for Glassdoor Company Reviews/  # Phase 2: Review link collection
 ├── 3 Gathering data using AI/         # Phase 3: AI-driven data gathering
-├── venv/                              # Virtual environment
+├── 4 Data analysis of Glassdoor Reviews/  # Phase 4: Data analysis and insights
+├── Datasets/                          # Centralized data storage
 └── README.md                          # This file
 ```
 
@@ -67,13 +68,78 @@ Chrome extension for efficiently collecting Glassdoor review links using automat
 ### Phase 3: Gathering Data Using AI
 **Directory:** `3 Gathering data using AI/`
 
-AI-powered data collection and enhancement methods (currently in development).
+AI-powered data collection and enhancement methods using Apify and Make.com automation.
 
-**Planned Features:**
-- AI-driven data augmentation
-- Natural language processing for review analysis
-- Automated data quality assessment
-- Intelligent data categorization
+**Key Features:**
+- Automated Glassdoor review scraping using Apify actors
+- Make.com workflow automation for data pipeline orchestration
+- Residential proxy rotation for reliable data collection
+- Batch processing with up to 100 reviews per company
+- Structured JSON output with comprehensive review data
+
+**Technologies Used:**
+- Apify platform for web scraping
+- Make.com for workflow automation
+- Google Sheets integration for data management
+- Residential proxies for reliable access
+
+**Output:**
+- Comprehensive employee review datasets
+- Structured JSON data with 33+ fields per review
+- Automated data quality control
+
+### Phase 4: Data Analysis of Glassdoor Reviews
+**Directory:** `4 Data analysis of Glassdoor Reviews/`
+
+Comprehensive data analysis and insights generation from collected employee review data.
+
+**Key Features:**
+- Exploratory data analysis of employee reviews
+- Statistical analysis of retention factors
+- Company comparison and benchmarking
+- Sentiment analysis and trend identification
+- Data visualization and reporting
+
+**Technologies Used:**
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- Jupyter Notebooks for interactive analysis
+- Statistical analysis libraries
+- Data visualization tools
+
+**Current Analysis:**
+- **Dataset Size**: 11,925 employee reviews from 127 companies
+- **Data Fields**: 24 columns including ratings, job titles, locations, and review content
+- **Companies**: Forbes top 127 companies including JPMorgan Chase, Amazon, Microsoft, Apple, and more
+- **Analysis Focus**: Employee satisfaction, retention factors, company comparisons
+
+**Analysis Modules:**
+- **Module 1: Data Understanding** - Initial data exploration and quality assessment
+- Additional modules planned for advanced analytics
+
+## 📊 Datasets
+
+**Directory:** `Datasets/`
+
+Centralized data storage containing comprehensive employee review datasets.
+
+**Available Datasets:**
+- `Glassdoor Reviews RAW.csv` (5.7MB) - Raw scraped data
+- `Glassdoor Reviews Cleaned.csv` (5.3MB) - Processed and cleaned data
+- `Dataset description-ERA.pdf` - Comprehensive data documentation
+
+**Dataset Characteristics:**
+- **Total Records**: 11,925 employee reviews
+- **Companies**: 127 major US corporations
+- **Data Fields**: 24 structured columns
+- **Collection Method**: AI-powered automation via Apify
+- **Data Quality**: High-quality, structured employee feedback
+
+**Key Data Fields:**
+- Employee ratings (overall, work-life balance, culture, compensation, etc.)
+- Job titles and employment duration
+- Location and company information
+- Review content (pros, cons, advice to management)
+- Review metadata (helpful votes, submission dates)
 
 ## 🛠️ Setup and Installation
 
@@ -81,6 +147,7 @@ AI-powered data collection and enhancement methods (currently in development).
 - Python 3.8+
 - Google Chrome browser
 - Git (for cloning the repository)
+- Jupyter Notebook (for data analysis)
 
 ### Environment Setup
 
@@ -101,7 +168,8 @@ AI-powered data collection and enhancement methods (currently in development).
 
 3. **Install Python dependencies:**
    ```bash
-   pip install selenium beautifulsoup4 pandas websocket-client playwright nest_asyncio
+   pip install -r requirements.txt
+   pip install selenium beautifulsoup4 pandas websocket-client playwright nest_asyncio jupyter matplotlib seaborn
    playwright install
    ```
 
@@ -143,6 +211,24 @@ AI-powered data collection and enhancement methods (currently in development).
 4. Monitor progress or continue browsing - search runs in background
 5. Download automatically generated CSV when complete
 
+### Running Phase 4: Data Analysis
+
+1. Navigate to the data analysis directory:
+   ```bash
+   cd "4 Data analysis of Glassdoor Reviews"
+   ```
+
+2. Open and run the analysis notebooks:
+   ```bash
+   jupyter notebook "Module 1 Data Understanding/1 Data Exploration.ipynb"
+   ```
+
+3. Explore the comprehensive analysis of:
+   - Dataset characteristics and quality
+   - Company distribution and review patterns
+   - Employee satisfaction metrics
+   - Retention factor analysis
+
 ### Sample Input for Extension:
 ```
 Microsoft
@@ -161,6 +247,7 @@ The project generates several types of data files:
 - **Glassdoor URLs**: Direct links to company review pages
 - **CSV Exports**: Structured data ready for analysis
 - **Review Data**: Company review information and ratings
+- **Analysis Reports**: Comprehensive insights and visualizations
 
 ## 🔧 Technical Architecture
 
@@ -175,6 +262,18 @@ The project generates several types of data files:
 - **Content Scripts**: Page interaction and data extraction
 - **Chrome Storage API**: Persistent state management
 - **DuckDuckGo Integration**: Privacy-focused search automation
+
+### Phase 3 Architecture
+- **Apify Platform**: Scalable web scraping infrastructure
+- **Make.com Workflows**: Visual automation and data pipeline orchestration
+- **Google Sheets Integration**: Data storage and management
+- **Residential Proxies**: Reliable data collection
+
+### Phase 4 Architecture
+- **Jupyter Notebooks**: Interactive data analysis environment
+- **Pandas/NumPy**: Data manipulation and statistical analysis
+- **Matplotlib/Seaborn**: Data visualization and reporting
+- **Statistical Libraries**: Advanced analytics and insights
 
 ## 📝 Contributing
 
@@ -208,4 +307,4 @@ For questions, issues, or contributions, please refer to the individual README f
 
 ---
 
-**Note**: This is an evolving project with Phase 3 currently under development. Check individual directories for the most up-to-date documentation and implementation details.
+**Note**: This is an evolving project with comprehensive data collection and analysis capabilities. The project now includes a complete data analysis phase with insights from 11,925 employee reviews across 127 major US companies. Check individual directories for the most up-to-date documentation and implementation details.
