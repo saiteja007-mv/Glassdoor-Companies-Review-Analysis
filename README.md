@@ -2,6 +2,51 @@
 
 A comprehensive data analysis project focused on collecting and analyzing employee retention data from major companies using multiple data gathering techniques including web scraping, browser automation, and AI-driven data collection.
 
+## 📋 Table of Contents
+
+- [🎯 Project Overview](#-project-overview)
+- [🏆 Project Achievements](#-project-achievements)
+  - [📊 Data Collection Success](#-data-collection-success)
+  - [🔍 Analysis Insights](#-analysis-insights)
+  - [📈 Comprehensive Visualizations](#-comprehensive-visualizations)
+  - [🛠️ Technical Innovation](#️-technical-innovation)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Project Phases](#-project-phases)
+  - [Phase 1: Web Scraping Companies](#phase-1-web-scraping-companies)
+  - [Phase 2: Extension for Glassdoor Company Reviews](#phase-2-extension-for-glassdoor-company-reviews)
+  - [Phase 3: Gathering Data Using AI](#phase-3-gathering-data-using-ai)
+  - [Phase 4: Data Analysis of Glassdoor Reviews](#phase-4-data-analysis-of-glassdoor-reviews)
+- [📊 Datasets](#-datasets)
+- [🛠️ Setup and Installation](#️-setup-and-installation)
+  - [Prerequisites](#prerequisites)
+  - [Environment Setup](#environment-setup)
+  - [Chrome Extension Installation](#chrome-extension-installation)
+- [📊 Usage Guide](#-usage-guide)
+  - [Running Phase 1: Web Scraping](#running-phase-1-web-scraping)
+  - [Running Phase 2: Chrome Extension](#running-phase-2-chrome-extension)
+  - [Running Phase 4: Data Analysis](#running-phase-4-data-analysis)
+  - [Module 3: Data Analysis using PowerBI](#module-3-data-analysis-using-powerbi)
+- [📈 Data Output](#-data-output)
+- [📊 Visualization Gallery](#-visualization-gallery)
+  - [🏢 Company Performance Analysis](#-company-performance-analysis)
+  - [👨‍💼 Role-based Insights](#-role-based-insights)
+  - [📍 Geographic Distribution](#-geographic-distribution)
+  - [📊 Statistical Analysis](#-statistical-analysis)
+  - [⏰ Temporal Trends](#-temporal-trends)
+  - [👥 Employment Factors](#-employment-factors)
+- [🔧 Technical Architecture](#-technical-architecture)
+  - [Phase 1 Architecture](#phase-1-architecture)
+  - [Phase 2 Architecture](#phase-2-architecture)
+  - [Phase 3 Architecture](#phase-3-architecture)
+  - [Phase 4 Architecture](#phase-4-architecture)
+- [📝 Contributing](#-contributing)
+- [🔒 Privacy and Ethics](#-privacy-and-ethics)
+- [⚠️ Disclaimers](#️-disclaimers)
+- [📄 License](#-license)
+- [🤝 Support](#-support)
+
+---
+
 ## 🎯 Project Overview
 
 This project aims to gather comprehensive employee retention and company review data from various sources to perform meaningful analysis on employee satisfaction trends across major US companies. The project is structured in four main phases, each utilizing different methodologies for data collection and analysis.
@@ -34,6 +79,8 @@ This project aims to gather comprehensive employee retention and company review 
 - **Chrome Extension Development** for efficient link collection and processing
 - **Advanced Data Processing** with comprehensive cleaning and feature engineering
 
+**[⬆️ Back to Top](#-table-of-contents)**
+
 ## 📁 Project Structure
 
 ```
@@ -48,6 +95,8 @@ Glassdoor Companies Review Analysis/
 ├── Datasets/                          # Centralized data storage
 └── README.md                          # This file
 ```
+
+**[⬆️ Back to Top](#-table-of-contents)**
 
 ## 🚀 Project Phases
 
@@ -182,6 +231,8 @@ Centralized data storage containing comprehensive employee review datasets.
 - Review content (pros, cons, advice to management)
 - Review metadata (helpful votes, submission dates)
 
+**[⬆️ Back to Top](#-table-of-contents)**
+
 ## 🛠️ Setup and Installation
 
 ### Prerequisites
@@ -224,6 +275,8 @@ Centralized data storage containing comprehensive employee review datasets.
 2. Enable "Developer mode"
 3. Click "Load unpacked" and select the `2 Extension for Glassdoor Company Reviews/` directory
 4. Pin the extension to your toolbar
+
+**[⬆️ Back to Top](#-table-of-contents)**
 
 ## 📊 Usage Guide
 
@@ -321,6 +374,8 @@ Interactive business intelligence dashboard for comprehensive employee review an
 - **Embed Code**: Available for integration into websites and applications
 - **Export Options**: PDF, PowerPoint, and image export capabilities
 
+**[⬆️ Back to Top](#-table-of-contents)**
+
 ### Sample Input for Extension:
 ```
 Microsoft
@@ -340,6 +395,8 @@ The project generates several types of data files:
 - **CSV Exports**: Structured data ready for analysis
 - **Review Data**: Company review information and ratings
 - **Analysis Reports**: Comprehensive insights and visualizations
+
+**[⬆️ Back to Top](#-table-of-contents)**
 
 ## 📊 Visualization Gallery
 
@@ -378,6 +435,8 @@ The project generates several types of data files:
 
 *All visualizations are high-resolution (300 DPI) PNG files saved in `4 Data analysis of Glassdoor Reviews/Module 2 EDA/Plottings/`*
 
+**[⬆️ Back to Top](#-table-of-contents)**
+
 ## 🔧 Technical Architecture
 
 ### Phase 1 Architecture
@@ -406,6 +465,8 @@ The project generates several types of data files:
 - **Module Structure**: Organized analysis phases with comprehensive documentation
 - **Visualization Pipeline**: Automated high-quality plot generation
 
+**[⬆️ Back to Top](#-table-of-contents)**
+
 ## 📝 Contributing
 
 1. Fork the repository
@@ -413,6 +474,8 @@ The project generates several types of data files:
 3. Make your changes
 4. Add tests if applicable
 5. Submit a pull request
+
+**[⬆️ Back to Top](#-table-of-contents)**
 
 ## 🔒 Privacy and Ethics
 
@@ -439,3 +502,9 @@ For questions, issues, or contributions, please refer to the individual README f
 ---
 
 **Note**: This is an evolving project with comprehensive data collection and analysis capabilities. The project now includes a complete data analysis phase with insights from 6,971 employee reviews across 127 major US companies. The analysis reveals critical patterns in employee satisfaction, with NVIDIA, ConocoPhillips, and General Dynamics IT leading in overall ratings. Software Engineers show the highest review volume but face work-life balance challenges, while current employees rate their companies significantly higher than former employees. The project now features an interactive PowerBI dashboard for real-time business intelligence and professional reporting. Check individual directories for the most up-to-date documentation and implementation details.
+
+---
+
+## 🔗 Quick Navigation
+
+**[⬆️ Back to Top](#-table-of-contents)** | **[📁 Project Structure](#-project-structure)** | **[🚀 Project Phases](#-project-phases)** | **[📊 Datasets](#-datasets)** | **[🛠️ Setup](#️-setup-and-installation)** | **[📊 Usage](#-usage-guide)** | **[📈 Visualizations](#-visualization-gallery)**
