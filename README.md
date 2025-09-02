@@ -26,6 +26,7 @@ This project aims to gather comprehensive employee retention and company review 
 - **Statistical Analysis** including correlation matrices, distribution plots, and trend analysis
 - **Publication-Ready Outputs** with consistent styling and professional presentation
 - **Multi-Dimensional Insights** across company, role, location, and time dimensions
+- **Interactive PowerBI Dashboard** for real-time business intelligence and reporting
 
 ### 🛠️ Technical Innovation
 - **Multi-Phase Architecture** with specialized tools for each collection method
@@ -41,6 +42,9 @@ Glassdoor Companies Review Analysis/
 ├── 2 Extension for Glassdoor Company Reviews/  # Phase 2: Review link collection
 ├── 3 Gathering data using AI/         # Phase 3: AI-driven data gathering
 ├── 4 Data analysis of Glassdoor Reviews/  # Phase 4: Data analysis and insights
+│   ├── Module 1 Data Understanding & Preprocessing/  # Data exploration and cleaning
+│   ├── Module 2 EDA/                  # Exploratory data analysis and visualizations
+│   └── Module 3 Data Analysis using PowerBI/  # Interactive dashboard and BI reporting
 ├── Datasets/                          # Centralized data storage
 └── README.md                          # This file
 ```
@@ -138,10 +142,12 @@ Comprehensive data analysis and insights generation from collected employee revi
 - **Data Fields**: 24 columns including ratings, job titles, locations, and review content
 - **Companies**: Forbes top 127 companies including JPMorgan Chase, Amazon, Microsoft, Apple, and more
 - **Analysis Focus**: Employee satisfaction, retention factors, company comparisons
+- **PowerBI Dashboard**: Interactive business intelligence dashboard for real-time analysis and reporting
 
 **Analysis Modules:**
 - **Module 1: Data Understanding & Preprocessing** - Initial data exploration, cleaning, and quality assessment
 - **Module 2: Exploratory Data Analysis (EDA)** - Comprehensive statistical analysis and visualization
+- **Module 3: Data Analysis using PowerBI** - Interactive dashboard and business intelligence reporting
 
 **Key Findings:**
 - **Top Companies**: NVIDIA (4.56), ConocoPhillips (4.45), General Dynamics IT (4.42) lead in overall ratings
@@ -275,6 +281,46 @@ Centralized data storage containing comprehensive employee review datasets.
    - Time-based trend visualizations
    - Employment factor analysis
 
+5. **PowerBI Dashboard**: Access the interactive dashboard for real-time analysis:
+   - **Online Dashboard**: [Glassdoor Reviews Analysis Dashboard](https://app.powerbi.com/view?r=eyJrIjoiODdiNzRlMjktNTc3ZS00NjkyLTk1MzYtZjU0NmQyYzJhZjcwIiwidCI6IjdhZmI5ZTIyLTkzMDgtNDE4Ni04ZTI5LWVhMjMxZmYzYmFmNyIsImMiOjN9)
+   - **Local Workbook**: Open `Module 3 Data Analysis using PowerBI/Glassdoor_reviews_analysis.pbix` in PowerBI Desktop
+   - **Dashboard Screenshot**: Reference `Module 3 Data Analysis using PowerBI/Glassdoor_Reviews_Dashboard.png` for overview
+
+### Module 3: Data Analysis using PowerBI
+**Directory:** `4 Data analysis of Glassdoor Reviews/Module 3 Data Analysis using PowerBI/`
+
+Interactive business intelligence dashboard for comprehensive employee review analysis and reporting.
+
+**Key Features:**
+- **Interactive Dashboard**: Real-time data exploration and analysis
+- **Multi-Dimensional Views**: Company, role, location, and time-based insights
+- **Dynamic Filtering**: Interactive slicers and filters for focused analysis
+- **Professional Reporting**: Business-ready visualizations and KPIs
+- **Data Refresh Capability**: Live connection to analysis datasets
+
+**Technologies Used:**
+- Microsoft PowerBI Desktop
+- PowerBI Service for sharing and collaboration
+- Advanced DAX calculations and measures
+- Custom visualizations and formatting
+
+**Dashboard Components:**
+- **Company Performance Overview**: Top performers and benchmarking metrics
+- **Role-Based Analysis**: Job title satisfaction patterns and trends
+- **Geographic Insights**: Regional distribution and satisfaction by location
+- **Temporal Trends**: Year-over-year analysis and seasonal patterns
+- **Employment Factors**: Current vs former employee satisfaction analysis
+- **Rating Breakdowns**: Detailed analysis across all rating categories
+
+**Files:**
+- `Glassdoor_reviews_analysis.pbix` - PowerBI workbook with complete dashboard
+- `Glassdoor_Reviews_Dashboard.png` - Dashboard screenshot for reference
+
+**Access the Dashboard:**
+- **PowerBI Service Link**: [Glassdoor Reviews Analysis Dashboard](https://app.powerbi.com/view?r=eyJrIjoiODdiNzRlMjktNTc3ZS00NjkyLTk1MzYtZjU0NmQyYzJhZjcwIiwidCI6IjdhZmI5ZTIyLTkzMDgtNDE4Ni04ZTI5LWVhMjMxZmYzYmFmNyIsImMiOjN9)
+- **Embed Code**: Available for integration into websites and applications
+- **Export Options**: PDF, PowerPoint, and image export capabilities
+
 ### Sample Input for Extension:
 ```
 Microsoft
@@ -392,4 +438,4 @@ For questions, issues, or contributions, please refer to the individual README f
 
 ---
 
-**Note**: This is an evolving project with comprehensive data collection and analysis capabilities. The project now includes a complete data analysis phase with insights from 6,971 employee reviews across 127 major US companies. The analysis reveals critical patterns in employee satisfaction, with NVIDIA, ConocoPhillips, and General Dynamics IT leading in overall ratings. Software Engineers show the highest review volume but face work-life balance challenges, while current employees rate their companies significantly higher than former employees. Check individual directories for the most up-to-date documentation and implementation details.
+**Note**: This is an evolving project with comprehensive data collection and analysis capabilities. The project now includes a complete data analysis phase with insights from 6,971 employee reviews across 127 major US companies. The analysis reveals critical patterns in employee satisfaction, with NVIDIA, ConocoPhillips, and General Dynamics IT leading in overall ratings. Software Engineers show the highest review volume but face work-life balance challenges, while current employees rate their companies significantly higher than former employees. The project now features an interactive PowerBI dashboard for real-time business intelligence and professional reporting. Check individual directories for the most up-to-date documentation and implementation details.
